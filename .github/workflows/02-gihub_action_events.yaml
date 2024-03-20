@@ -1,5 +1,12 @@
 name: 02-github action workflow events
-on: push
+on: 
+    push: 
+    pull_request: 
+    schedule:
+        - cron: '0 */12 * * *'
+    workflow_dispatch:
+        
+
 jobs:
     echo:
         runs-on: ubuntu-latest

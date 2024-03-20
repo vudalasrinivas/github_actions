@@ -1,6 +1,6 @@
 # name of the workflow
 name: 01 - building 1st workflow
-on: push
+#on: push
 
 jobs:
   echo-hello:
