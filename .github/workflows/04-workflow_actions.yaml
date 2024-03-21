@@ -1,0 +1,14 @@
+#1. Checkout the code from the repository
+#2. Install deps of our react application
+#3. Execute automated tests
+name: 04-workflow_actions
+on: push
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: printfiles
+              run: ls
+
