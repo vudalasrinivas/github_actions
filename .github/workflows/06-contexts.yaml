@@ -1,7 +1,7 @@
 name: 06-contexts
 run-name: 06 - Contexts | DEBUG - ${{ inputs.debug }}   ### name will come like "06 - Contexts | DEBUG - " OR "06 - Contexts | DEBUG - true"  OR "06 - Contexts | DEBUG - false"
 on: 
-  push:
+#  push:
   workflow_dispatch:
     inputs:
         debug:                     ### this can be used in the workflow_dispatch level only not in push. with this we can cusomige the name of the RUN name 
@@ -31,8 +31,8 @@ jobs:
 
             - name: Retrieve Variable
               run: |
-                echo "Variable value: ${{ vars.MY_VAR }}"
-
+                echo "Variable value: ${{ vars.MY_VAR }}"   
+# Wont provide any error or value in the output. You can declare this variable in sttings --> secrets and variables --> Actions --> Variables --> New Repository variables. 
             - name: Print ENV variables - step
               env:
                 MY_OVERWRITTEN_VAR: 'step'
