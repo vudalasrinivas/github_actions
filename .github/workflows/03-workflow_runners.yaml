@@ -7,3 +7,11 @@ jobs:
             - name: show-os
               run: |
                 echo "Runner OS: $RUNNER_OS"
+    windows-echo:
+        runs-on: windows-latest
+        steps:
+            - name: show windows os
+              shell: bash         # Windows has the bash installed in it.. or else below commads wont work on Windows machine.
+              run: |
+                echo "Job is running on the Windows Runner"
+                echo "Runner: $RUNNER_OS" 
