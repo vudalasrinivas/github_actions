@@ -15,3 +15,8 @@ jobs:
               run: |
                 echo "Job is running on the Windows Runner"
                 echo "Runner: $RUNNER_OS" 
+    mac-echo:
+        runs-on: nacos-latest
+        steps:
+            - name: show Mac-OS
+              run: echo "Runner: $RUNNER_OS"
