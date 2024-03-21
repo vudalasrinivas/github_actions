@@ -1,9 +1,15 @@
 name: 06-contexts
+run-name: 06 - Contexts | DEBUG - ${{ inputs.debug }}
 on: 
   push:
   workflow_dispatch:
-
-jobs:
+    inputs:
+        debug:                     ### this can be used in the workflow_dispatch level only not in push. with this we can cusomige the name of the RUN name 
+            description: "Debug Mode"
+            type: boolean
+            default: false
+            
+jobs:            
     echo-data:
         runs-on: ubuntu-latest
         steps:
@@ -16,7 +22,7 @@ jobs:
                 echo "Workflow: ${{ github.workflow }}"
                 echo "Run ID: ${{ github.run_id }}"
                 echo "Run number: ${{ github.run_number }}"
-                
+
             - name: Retrieve Variable
               run: |
                 echo "Variable value: ${{ vars.MY_VAR }}"
