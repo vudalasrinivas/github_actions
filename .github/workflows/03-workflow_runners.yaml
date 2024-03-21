@@ -14,9 +14,10 @@ jobs:
               shell: bash         # Windows has the bash installed in it.. or else below commads wont work on Windows machine.
               run: |
                 echo "Job is running on the Windows Runner"
-                echo "Runner: $RUNNER_OS" 
+                echo "Runner OS: $RUNNER_OS" 
     mac-echo:
-        runs-on: nacos-latest
+        runs-on: macos-latest
         steps:
             - name: show Mac-OS
-              run: echo "Runner: $RUNNER_OS"
+              run: |
+                echo "Runner OS name: $RUNNER_OS"
