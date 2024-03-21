@@ -6,6 +6,10 @@ on: push
 jobs:
     build:
         runs-on: ubuntu-latest
+        defaults:                ##  Define a set of default steps to run for each job in this workflow. it will apply in the all the steps in the job
+            run:
+                working-directory: 04-workflow_actions/react-app
+            
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
@@ -21,6 +25,9 @@ jobs:
               #run: |
               #  cd 04-workflow_actions/react-app
               #  npm ci
+            - name: Running Unit Tests
+              run: npm run test
+                
 
 
 
