@@ -1,5 +1,5 @@
 name: 06-contexts
-run-name: 06 - Contexts | DEBUG - ${{ inputs.debug }}
+run-name: 06 - Contexts | DEBUG - ${{ inputs.debug }}   ### name will come like "06 - Contexts | DEBUG - " OR "06 - Contexts | DEBUG - true"  OR "06 - Contexts | DEBUG - false"
 on: 
   push:
   workflow_dispatch:
@@ -8,10 +8,16 @@ on:
             description: "Debug Mode"
             type: boolean
             default: false
+env:
+    MY_WORKFLOW_VAR: 'workflow'
+    MY_OVERWRITTEN_VAR: 'workflow'            
             
 jobs:            
     echo-data:
         runs-on: ubuntu-latest
+        env:
+            MY_JOB_VAR: 'job'
+            MY_OVERWRITTEN_VAR: 'job'
         steps:
             - name: Display information
               run: |
@@ -27,3 +33,22 @@ jobs:
               run: |
                 echo "Variable value: ${{ vars.MY_VAR }}"
 
+            - name: Print ENV variables - step
+              env:
+                MY_OVERWRITTEN_VAR: 'step'
+              run: |
+                echo "workflow env: ${{ env.MY_WORKFLOW_VAR }}"
+                echo "Overwritten env: ${{ env.MY_OVERWRITTEN_VAR }}"
+
+            - name: Print ENV variables -- job
+              run: |
+                echo "workflow env: ${{ env.MY_WORKFLOW_VAR }}"
+                echo "Overwritten env: ${{ env.MY_OVERWRITTEN_VAR }}"
+    
+    echo-data2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Env variable 
+              run: |
+                echo "Workflow env: $env.MY_WORKFLOW_VAR"
+                echo "Overwritten env: $env.MY_OVERWRITTEN_VAR"            
