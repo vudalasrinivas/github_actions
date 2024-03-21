@@ -4,7 +4,7 @@ name: 01 - building 1st workflow
 on: workflow_dispatch
 
 jobs:
-  echo-hello:
+  echo-hello:                                             ##### Job name
     runs-on: ubuntu-latest
     steps:
       - name: print hello 
