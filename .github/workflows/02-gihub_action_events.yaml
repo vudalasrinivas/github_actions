@@ -1,10 +1,10 @@
 name: 02-github action workflow events
-#on: 
+on: 
 #    push: 
 #    pull_request: 
 #    schedule:
 #        - cron: '0 */12 * * *'
-#    workflow_dispatch:
+    workflow_dispatch:
 
 
 jobs:

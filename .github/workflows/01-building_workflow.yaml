@@ -1,6 +1,7 @@
 # name of the workflow
 name: 01 - building 1st workflow
 #on: push
+on: workflow_dispatch
 
 jobs:
   echo-hello:
