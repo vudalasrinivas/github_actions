@@ -1,4 +1,8 @@
 name: 07-Using expressions
+run-name: 07 - Using Expressions | DEBUG - ${{ inputs.debug && 'ON' || 'OFF'}}   # if the expression is true then it prints ON custom default value or if it false then will prints OFF value. 
+
+env:
+    MY_VAR_WITH_DEFAULT: ${{ vars.my_VAR || 'dafault_value' }}   ## decalring the default value if the value not declared in actions.
 on:
     push: 
     workflow_dispatch:
@@ -12,14 +16,16 @@ jobs:
     runs-on:  ubuntu-latest
     steps:
         - name: '[debug] Print start-up data'
-          if: ${{ inputs.debug }}
+          if: inputs.debug
+          #if: ${{ inputs.debug }}
           run: |
             echo "Triggered by : ${{ github.event_name }}"
             echo "Branch: ${{ github.ref }}"
             echo "Commit SHA: ${{ github.sha }}"
             echo "Runner OS: ${{ runner.os }}"
         - name: '[debug] print when triggered from main'
-          if: ${{ inputs.debug && github.ref == 'refs/heads/main' }}
+       #   if: ${{ inputs.debug && github.ref == 'refs/heads/main' }}
+          if: inputs.debug && github.ref == 'refs/heads/main'
           run: |
             echo "I was triggered from MAIN"
         - name: Greeting
