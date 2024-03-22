@@ -20,7 +20,7 @@ jobs:
             # npm run build
   unit-tests:
     runs-on: ubuntu-latest
-    continue-on-error: true
+  #  continue-on-error: true       # [option] uncomment to make this job continue even if it fails
     steps:
       - name: Running unit tests
         run: echo "Running Tests"
