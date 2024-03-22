@@ -4,7 +4,7 @@ on:
     inputs:
       dry-run:
         type: boolean  # boolean ; choice ; envirment <--- 3 options
-        description: "Sjip deployment and only print build output"
+        description: "Skip deployment and only print build output"
         default: false
       target:
         type: environment
@@ -32,4 +32,4 @@ jobs:
     environment: ${{ inputs.target }}
     steps:
       - name: Deploy
-        run: echo "Deploying to ${{ inputs.taget }}"   
+        run: echo "Deploying to ${{ inputs.target }}"   
