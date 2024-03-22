@@ -6,7 +6,7 @@ on:
         type: boolean
         description: "Whether unit tests will pass or not"
         default: true
-
+# comment added
 jobs:
   lint-build:
     runs-on: ubuntu-latest
