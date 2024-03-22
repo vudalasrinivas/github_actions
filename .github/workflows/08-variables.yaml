@@ -29,4 +29,22 @@ jobs:
               run: |
                echo "Step env var: ${{ env.OVERWRITTEN }}"  
 
-
+## -> vars with decaled in "$STEP_VAR" value does not get replaced before execution but "${{ env.step_var2}}" value replaced before execution.
+# Run echo "Step env var: $STEP_VAR"
+#   echo "Step env var: $STEP_VAR"
+#   echo "Step env var 2: I am another step var"
+#   echo " Job env var: I am a job env var"
+#   echo "Workflow env var: $WORKFLOW_VAR"
+#   echo "Overwritten: I have been overwritten at the job level"
+#   shell: /usr/bin/bash -e {0}
+#   env:
+#     WORKFLOW_VAR: I am a workflow env var
+#     OVERWRITTEN: I have been overwritten at the job level
+#     JOB_VAR: I am a job env var
+#     STEP_VAR: I am a step env var
+#     step_var2: I am another step var
+# Step env var: I am a step env var
+# Step env var 2: I am another step var
+#  Job env var: I am a job env var
+# Workflow env var: I am a workflow env var
+# Overwritten: I have been overwritten at the job level
