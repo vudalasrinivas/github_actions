@@ -11,9 +11,9 @@ jobs:
   lint-build:
     runs-on: ubuntu-latest
     steps:
-        - name: Lint and build
-          run: |
-            echo "Linting and building project"
+      - name: Lint and build
+        run: |
+          echo "Linting and building project"
             # npm run lint
             # npm run format:check
             # npm run tsc:check
